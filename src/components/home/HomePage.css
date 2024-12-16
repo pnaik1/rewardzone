@@ -1,0 +1,29 @@
+.home-card {
+  /* --pf-v6-c-card--BackgroundColor: #f2f0ef !important; */
+  --pf-v6-c-card--BackgroundColor: #e00000 !important;
+
+  --pf-v6-c-card--BorderRadius: 15px !important;
+  --pf-v6-c-card--BorderWidth: 0px !important;
+  transition: "transform 0.3s ease, box-shadow 0.3s ease";
+  transform: "scale(1)"; /* Initial size of the card */
+  cursor: pointer;
+  margin: 30px 15px !important;
+  box-shadow: "0 4px 15px rgba(0, 0, 0, 0.1)"; /* Light shadow initially */
+}
+
+.pf-v6-c-expandable-section {
+  --pf-v6-c-expandable-section__toggle-icon--Color: red;
+}
+
+.card-title {
+  align-items: "flex-end";
+  height: 70px;
+  padding: 15px;
+}
+
+.card-body {
+  background-color: #a8a8a8;
+  text-align: center;
+  padding: 10px;
+  color: black;
+}

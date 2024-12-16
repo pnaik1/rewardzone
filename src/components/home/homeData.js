@@ -1,7 +1,7 @@
 export const homeData = [
   {
     Title: "Approvals",
-    Description: "Approve rewards",
+    Description: "Approve Rewards",
     icon: "./images/approval.png",
   },
   {
@@ -16,6 +16,7 @@ export const homeData = [
   },
   {
     Title: "My Account",
+    Description: "Learn More",
     icon: "./images/myAccount.png",
   },
   {
@@ -58,5 +59,6 @@ export const homeData = [
   {
     Title: "FAQ",
     icon: "./images/FAQ.png",
+    Description: "Learn more",
   },
 ];

@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.reward-dashboard {
+  background: inherit;
+  opacity: 1;
+  &__page-content {
+    display: flex;
+    flex: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.pf-v6-c-page {
+  --pf-v6-c-page__main-container--MarginInlineStart: 0 !important;
+  --pf-v6-c-page__main-container--BorderRadius: 0 !important;
+  --pf-v6-c-page__main-container--MarginInlineEnd: 0 !important;
+  --pf-v6-c-page__main-container--BackgroundColor: transparent !important;
+  --pf-v6-c-page__main--BackgroundColor: transparent !important;
+  --pf-v6-c-page__main-section--BackgroundColor: transparent !important;
+  --pf-v6-c-page__main-container--BorderWidth: 0 !important;
+  --pf-v6-c-page__main-section--PaddingInlineEnd: 0 !important;
+  --pf-v6-c-page__main-section--PaddingBlockEnd: 0 !important;
+  --pf-v6-c-page__main-container--MaxHeight: 100% !important;
+  --pf-v6-c-page__main-section--PaddingInlineStart: 0 !important;
+}
+
+.pf-v6-c-masthead {
+  --pf-v6-c-masthead--BackgroundColor: black !important;
+}
+
+.background-image {
+  background-image: url("../public/images/finalBackground.jpg");
+  background-size: cover;
+  background-position: right;
+  height: 120px;
+  padding-top: 30px;
+  background-repeat: no-repeat;
+}
+
+.title-text {
+  font-family: Arizonia, cursive !important;
+  font-weight: bolder !important;
+  font-size: 40px !important;
+  opacity: 0.9 !important;
   color: white;
+  word-spacing: 15px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.page-section {
+  background-color: black !important;
+  position: fixed !important;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 15px;
 }
