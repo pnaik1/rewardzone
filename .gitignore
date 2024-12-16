@@ -6,4 +6,4 @@ node_modules/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 build/
-
+**/**/.DS_STORE

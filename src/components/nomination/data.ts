@@ -1,0 +1,93 @@
+import { Repository } from "./type";
+
+export const nominationData: Repository[] = [
+  {
+    reward: "sub competency 1",
+    rewardFamily: "competency 1",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Approved",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 2",
+    rewardFamily: "competency 2",
+    to: "ABC",
+    nominatedOn: "Oct 24 2024",
+    status: "Rejected",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 2",
+    rewardFamily: "competency 2",
+    to: "ABC",
+    nominatedOn: "Oct 24 2024",
+    status: "Rejected",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 2",
+    rewardFamily: "competency 2",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Rejected",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 2",
+    rewardFamily: "competency 2",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Approved",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 3",
+    rewardFamily: "competency 3",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Pending",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 3",
+    rewardFamily: "competency 3",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Pending",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 3",
+    rewardFamily: "competency 3",
+    to: "ABC",
+    nominatedOn: "Oct 24 2024",
+    status: "Pending",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 3",
+    rewardFamily: "competency 3",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Pending",
+    Actions: "../xyz",
+  },
+  {
+    reward: "sub competency 4",
+    rewardFamily: "competency 4",
+    to: "XYZ",
+    nominatedOn: "Oct 24 2024",
+    status: "Approved",
+    Actions: "../xyz",
+  },
+];
+
+export const columnNames = {
+  reward: "Reward",
+  rewardFamily: "Reward Family",
+  NominatedTo: "Nominated To",
+  nominatedOn: "Nominated On",
+  status: "Status",
+  Actions: "Actions",
+};

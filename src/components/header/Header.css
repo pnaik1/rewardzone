@@ -1,0 +1,26 @@
+.header-card {
+  --pf-v6-c-card--BackgroundColor: #d8d8d8 !important;
+  --pf-v6-c-card--m-full-height--Height: "20%" !important;
+  --pf-v6-c-card--BorderWidth: 0 !important;
+  --pf-v6-c-description-list__term--LineHeight: 0 !important;
+  --pf-v6-c-card--first-child--PaddingBlockStart: 0 !important;
+  --pf-v6-c-card--child--PaddingInlineEnd: 0 !important;
+  --pf-v6-c-card--child--PaddingBlockEnd: 0 !important;
+}
+
+.description-List {
+  --pf-v6-c-description-list--m-auto-fit--GridTemplateColumns--min: 0rem !important;
+  --pf-v6-c-description-list--m-horizontal__description--width: 3rem !important;
+}
+
+.toolbar-item {
+  --pf-v6-c-toolbar--LineHeight: 0.5 !important;
+}
+
+.pf-v6-c-menu-toggle__toggle-icon {
+  color: "white" !important;
+}
+
+.pf-v6-c-masthead__toggle {
+  color: white !important;
+}
