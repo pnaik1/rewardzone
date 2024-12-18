@@ -1,10 +1,5 @@
 import {
-  Button,
   Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
   Flex,
   FlexItem,
   Gallery,
@@ -32,6 +27,7 @@ const CreateNominationPage = () => {
   const [textValue, setTextValue] = React.useState("");
   const [inputValue, setInputValue] = React.useState<number | "">(0);
   const [name, setName] = React.useState<string[]>([]);
+
   const onNumberChange = (
     event: React.FormEvent<HTMLInputElement>,
     updateFunction: React.Dispatch<React.SetStateAction<number | "">>
@@ -273,7 +269,7 @@ const CreateNominationPage = () => {
               </FlexItem>
               <FlexItem>
                 <LabelGroup
-                  style={{ width: "100%", height: "27px" }}
+                  style={{ width: "250px", height: "27px" }}
                   categoryName="Names: "
                   numLabels={5}
                   isEditable
@@ -339,8 +335,9 @@ const CreateNominationPage = () => {
                               justifyContent: "center",
                               width: "100px",
                               height: "30px",
+                              backgroundColor: "red !important",
                             }}
-                            color="red"
+                            color="orangered"
                             onClick={() => {
                               setSelection(competencyData.indexOf(data));
                               setIsChecked("0");
@@ -361,6 +358,7 @@ const CreateNominationPage = () => {
                           <GalleryItem style={{ padding: "10px" }}>
                             <Label
                               onClick={(e) => setIsChecked(index.toString())}
+                              color="red"
                               style={{
                                 width: "200px",
                                 height: "65px",
@@ -403,6 +401,7 @@ const CreateNominationPage = () => {
           </Card>
         </FlexItem>
         <CerificatePage
+          nomineeName={name}
           data={competencyData}
           selection={selection}
           isChecked={isChecked}

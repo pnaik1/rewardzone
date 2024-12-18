@@ -78,7 +78,7 @@ export const HomePage = () => {
               {data.isDropdown && openDropdown[index] && (
                 <Stack
                   style={{
-                    backgroundColor: "#A8A8A8",
+                    backgroundColor: "white",
                   }}
                 >
                   <Menu
@@ -106,7 +106,7 @@ export const HomePage = () => {
                                 navigate(list.value);
                               }}
                             >
-                              <p style={{ textAlign: "center" }}>
+                              <p style={{ textAlign: "center", color: "red" }}>
                                 {list.name}{" "}
                               </p>
                             </MenuItem>

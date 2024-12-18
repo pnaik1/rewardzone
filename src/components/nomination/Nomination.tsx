@@ -1,16 +1,28 @@
 import React from "react";
 import {
+  Avatar,
   Button,
+  Card,
+  CardBody,
+  CardHeader,
+  CardTitle,
+  Flex,
+  FlexItem,
   Menu,
   MenuContent,
   MenuItem,
   MenuList,
   MenuToggle,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
   Pagination,
   Popper,
   SearchInput,
   Stack,
   StackItem,
+  Title,
   Toolbar,
   ToolbarContent,
   ToolbarFilter,
@@ -21,8 +33,9 @@ import {
 import { Table, Thead, Tr, Th, Tbody, Td } from "@patternfly/react-table";
 import { nominationData, columnNames } from "./data";
 import { Repository } from "./type";
-import { FilterIcon } from "@patternfly/react-icons";
+import { DownloadIcon, FilterIcon } from "@patternfly/react-icons";
 import "./Nomination.css";
+import logo from "../../images/png-transparent-orange-and-red-ribbon-logo-illustration-trophy-badge-ribbon-label-orange-removebg-preview Background Removed.png";
 
 export const Nomination: React.FunctionComponent = () => {
   const [principalsPagination, setPrincipalsPagination] = React.useState({
@@ -328,8 +341,16 @@ export const Nomination: React.FunctionComponent = () => {
     />
   );
 
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const handleModalToggle = (_event: KeyboardEvent | React.MouseEvent) => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <Stack hasGutter className="nomination-main">
+      <StackItem style={{ margin: "12px 80px" }}>
+        <Title headingLevel="h1">My Nominations</Title>
+      </StackItem>
       <StackItem>
         <Toolbar
           id="attribute-search-filter-toolbar"
@@ -402,13 +423,88 @@ export const Nomination: React.FunctionComponent = () => {
                 <Td dataLabel={columnNames.nominatedOn}>{repo.nominatedOn}</Td>
                 <Td dataLabel={columnNames.status}>{repo.status}</Td>
                 <Td dataLabel={columnNames.Actions}>
-                  <Button size="sm" style={{ backgroundColor: "red" }}>
-                    View Certificate
-                  </Button>
+                  <Flex>
+                    <FlexItem>
+                      <Button
+                        size="sm"
+                        style={{ backgroundColor: "red" }}
+                        onClick={handleModalToggle}
+                      >
+                        View Certificate
+                      </Button>
+                    </FlexItem>
+                    <FlexItem>
+                      <DownloadIcon />
+                    </FlexItem>
+                  </Flex>
                 </Td>
               </Tr>
             ))}
           </Tbody>
+          <Modal
+            variant="small"
+            style={{ height: "500px", backgroundColor: "grey" }}
+            title="Variant modal"
+            isOpen={isModalOpen}
+            onClose={handleModalToggle}
+            aria-labelledby="variant-modal-title"
+            aria-describedby="modal-box-body-variant"
+          >
+            <ModalHeader
+              title={
+                <Flex>
+                  <FlexItem>View certificate</FlexItem>
+                  <FlexItem>
+                    <DownloadIcon width={"300px"} color={"red"} />
+                  </FlexItem>
+                </Flex>
+              }
+              labelId="variant-modal-title"
+            />
+            <ModalBody id="modal-box-body-variant">
+              <Card
+                style={{
+                  margin: "auto 70px",
+                  padding: "5px",
+
+                  alignContent: "center",
+                  justifyContent: "center",
+                  width: "350px",
+                  height: "380px",
+                }}
+              >
+                <CardTitle
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "normal",
+                    color: "red",
+                    textAlign: "center",
+                  }}
+                >
+                  {" "}
+                  <b>REWARD ZONE</b>
+                </CardTitle>
+                <CardHeader
+                  style={{ textAlign: "center" } as React.CSSProperties}
+                >
+                  <b>Competency-1</b>
+                </CardHeader>
+                <CardBody
+                  style={{ textAlign: "center" } as React.CSSProperties}
+                >
+                  <div>
+                    <b>Extended trust</b>
+                  </div>
+                  <div style={{ padding: "25px" }}>
+                    <Avatar size="xl" src={logo} alt={""} />
+                  </div>
+                  <div>
+                    <b>{`Points: 10`}</b>
+                  </div>
+                </CardBody>
+              </Card>
+            </ModalBody>
+          </Modal>
         </Table>
       </StackItem>
     </Stack>
