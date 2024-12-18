@@ -332,7 +332,6 @@ const CreateNominationPage = () => {
                               width: "100px",
                               height: "30px",
                               backgroundColor: "red !important",
-                              backgroundColor: "red",
                             }}
                             color="orangered"
                             onClick={() => {
