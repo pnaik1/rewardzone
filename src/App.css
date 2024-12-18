@@ -1,9 +1,12 @@
 .reward-dashboard {
   background: inherit;
   opacity: 1;
+  overflow: auto !important;
+  flex: 1 !important;
+
   &__page-content {
-    display: flex;
-    flex: 1;
+    display: flex !important;
+    flex: 1 !important;
   }
 }
 
@@ -17,7 +20,7 @@
   --pf-v6-c-page__main-container--BorderWidth: 0 !important;
   --pf-v6-c-page__main-section--PaddingInlineEnd: 0 !important;
   --pf-v6-c-page__main-section--PaddingBlockEnd: 0 !important;
-  --pf-v6-c-page__main-container--MaxHeight: 100% !important;
+  --pf-v6-c-page__main-container--MaxHeight: calc(100% - 3.5rem) !important;
   --pf-v6-c-page__main-section--PaddingInlineStart: 0 !important;
 }
 
@@ -45,8 +48,9 @@
 
 .page-section {
   background-color: black !important;
-  position: fixed !important;
+  position: sticky;
   bottom: 0;
+  display: flex !important;
+  padding: 15px !important;
   width: 100%;
-  padding-bottom: 15px;
 }

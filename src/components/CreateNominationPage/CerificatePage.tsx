@@ -3,7 +3,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
   CardTitle,
   Flex,
@@ -11,6 +10,8 @@ import {
 } from "@patternfly/react-core";
 import React from "react";
 import logo from "../../images/png-transparent-orange-and-red-ribbon-logo-illustration-trophy-badge-ribbon-label-orange-removebg-preview Background Removed.png";
+import { useMessage } from "../../MessageContext";
+import { useNavigate } from "react-router-dom";
 
 type CertificateProp = {
   data: {
@@ -20,6 +21,7 @@ type CertificateProp = {
     }[];
   }[];
   selection: number;
+  nomineeName: string[];
   isChecked: string;
   inputValue: number | "";
 };
@@ -27,9 +29,28 @@ type CertificateProp = {
 const CerificatePage: React.FC<CertificateProp> = ({
   data: competencyData,
   selection,
+  nomineeName,
   isChecked,
   inputValue,
 }) => {
+  const { setMessage } = useMessage();
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    setMessage({
+      data: competencyData,
+      selection: selection,
+      isChecked: isChecked,
+      nomineeName: nomineeName,
+      inputValue: inputValue,
+    });
+  }, [
+    competencyData,
+    inputValue,
+    isChecked,
+    nomineeName,
+    selection,
+    setMessage,
+  ]);
   return (
     <FlexItem>
       <Card
@@ -37,7 +58,7 @@ const CerificatePage: React.FC<CertificateProp> = ({
           paddingTop: "20px",
           paddingBottom: "100px",
           marginBottom: "10px",
-          background: "#c3c7ca",
+
           width: "350px",
           height: "410px",
         }}
@@ -78,7 +99,11 @@ const CerificatePage: React.FC<CertificateProp> = ({
         spaceItems={{ default: "spaceItemsNone" }}
       >
         <FlexItem>
-          <Button variant="danger" style={{ margin: "10px", width: "100px" }}>
+          <Button
+            variant="danger"
+            style={{ margin: "10px", width: "100px" }}
+            onClick={() => navigate("/nominations/final")}
+          >
             Next
           </Button>
         </FlexItem>

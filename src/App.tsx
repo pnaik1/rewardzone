@@ -37,27 +37,25 @@ const App = () => {
         <PageSection>
           <AppRoutes />
         </PageSection>
-        <PageSection isFilled className="page-section">
-          <Flex
-            columnGap={{ default: "columnGapMd" }}
-            justifyContent={{ default: "justifyContentCenter" }}
-            style={{ marginBottom: "15px" }}
-          >
-            <Button variant="link" isDanger size="sm" isInline>
-              Home
-            </Button>
-            <Button variant="link" isDanger isInline>
-              Contact Us
-            </Button>
-            <Button variant="link" isDanger isInline>
-              Site Map
-            </Button>
-            <Button variant="link" isDanger isInline>
-              Sign Out
-            </Button>
-          </Flex>
-        </PageSection>
       </Page>
+      <Flex
+        columnGap={{ default: "columnGapMd" }}
+        className="page-section"
+        justifyContent={{ default: "justifyContentCenter" }}
+      >
+        <Button variant="link" isDanger size="sm" href="#" isInline>
+          Home
+        </Button>
+        <Button variant="link" isDanger isInline>
+          Contact Us
+        </Button>
+        <Button variant="link" isDanger isInline>
+          Site Map
+        </Button>
+        <Button variant="link" isDanger isInline>
+          Sign Out
+        </Button>
+      </Flex>
     </>
   );
 };
