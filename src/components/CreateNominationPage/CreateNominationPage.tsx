@@ -98,11 +98,7 @@ const CreateNominationPage = () => {
                 option.includes(newValue.toLowerCase())
             )
             .map((option) => (
-              <MenuItem
-                itemId={option}
-                key={option}
-                style={{ position: "relative" }}
-              >
+              <MenuItem itemId={option} key={option}>
                 {option}
               </MenuItem>
             )),
@@ -367,29 +363,6 @@ const CreateNominationPage = () => {
                             >
                               {data.name}
                             </Label>
-                            {/* <Card
-                              isSelectable
-                              isSelected={isChecked === index.toString()}
-                              style={{
-                                textAlign: "center",
-                                justifyContent: "center",
-
-                              }}
-                            >
-                              <CardHeader
-                                selectableActions={{
-                                  selectableActionId: index.toString(),
-                                  selectableActionAriaLabelledby:
-                                    "tile-example-2",
-                                  name: index.toString(),
-                                  variant: "single",
-                                  onChange,
-                                  isHidden: true,
-                                }}
-                              >
-                                {data.name}
-                              </CardHeader>
-                            </Card> */}
                           </GalleryItem>
                         )
                       )}
