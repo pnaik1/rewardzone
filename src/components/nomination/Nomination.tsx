@@ -434,7 +434,7 @@ export const Nomination: React.FunctionComponent = () => {
                       </Button>
                     </FlexItem>
                     <FlexItem>
-                      <DownloadIcon />
+                      <DownloadIcon style={{ cursor: "pointer" }} />
                     </FlexItem>
                   </Flex>
                 </Td>
@@ -443,7 +443,7 @@ export const Nomination: React.FunctionComponent = () => {
           </Tbody>
           <Modal
             variant="small"
-            style={{ height: "500px", backgroundColor: "grey" }}
+            style={{ height: "500px", backgroundColor: "#D3D3D3" }}
             title="Variant modal"
             isOpen={isModalOpen}
             onClose={handleModalToggle}
@@ -455,7 +455,11 @@ export const Nomination: React.FunctionComponent = () => {
                 <Flex>
                   <FlexItem>View certificate</FlexItem>
                   <FlexItem>
-                    <DownloadIcon width={"300px"} color={"red"} />
+                    <DownloadIcon
+                      width={"300px"}
+                      color={"red"}
+                      style={{ cursor: "pointer" }}
+                    />
                   </FlexItem>
                 </Flex>
               }

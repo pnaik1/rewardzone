@@ -12,14 +12,10 @@ import React from "react";
 import logo from "../../images/png-transparent-orange-and-red-ribbon-logo-illustration-trophy-badge-ribbon-label-orange-removebg-preview Background Removed.png";
 import { useMessage } from "../../MessageContext";
 import { useNavigate } from "react-router-dom";
+import { Competency } from "../home/competencyData";
 
 type CertificateProp = {
-  data: {
-    name: string;
-    subCompetencies: {
-      name: string;
-    }[];
-  }[];
+  data: Competency[];
   selection: number;
   nomineeName: string[];
   isChecked: string;

@@ -100,7 +100,7 @@ const FinalCertificatePage: React.FC = () => {
     setAlerts((prevAlertInfo) => [
       ...prevAlertInfo,
       {
-        title: "Your available balence is 300 points",
+        title: "Your available balance is 270 points",
         variant: AlertVariant.warning,
         key: getUniqueId(),
         top: "150px",

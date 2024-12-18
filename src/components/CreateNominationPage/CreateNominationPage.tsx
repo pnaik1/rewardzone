@@ -2,6 +2,7 @@ import {
   Card,
   Flex,
   FlexItem,
+  FormGroup,
   Gallery,
   GalleryItem,
   Label,
@@ -25,7 +26,7 @@ const CreateNominationPage = () => {
   const [selection, setSelection] = React.useState(0);
   const [value, setValue] = React.useState("");
   const [textValue, setTextValue] = React.useState("");
-  const [inputValue, setInputValue] = React.useState<number | "">(0);
+  const [inputValue, setInputValue] = React.useState<number | "">("");
   const [name, setName] = React.useState<string[]>([]);
 
   const onNumberChange = (
@@ -67,6 +68,7 @@ const CreateNominationPage = () => {
   const autocompleteRef = React.useRef<any>(null);
 
   const onNameChange = (_event: any, newValue: string) => {
+    console.log(newValue);
     if (
       newValue !== "" &&
       searchInputRef &&
@@ -92,13 +94,13 @@ const CreateNominationPage = () => {
         options = [
           ...options,
           ...words
-            .filter(
-              (option) =>
-                !option.startsWith(newValue.toLowerCase()) &&
-                option.includes(newValue.toLowerCase())
-            )
+            .filter((option) => option.startsWith(newValue))
             .map((option) => (
-              <MenuItem itemId={option} key={option}>
+              <MenuItem
+                itemId={option}
+                key={option}
+                style={{ position: "relative" }}
+              >
                 {option}
               </MenuItem>
             )),
@@ -224,7 +226,7 @@ const CreateNominationPage = () => {
       }}
       onClear={() => setValue("")}
       ref={searchInputRef}
-      hint={hint}
+      // hint={hint}
       id="autocomplete-search"
     />
   );
@@ -250,50 +252,54 @@ const CreateNominationPage = () => {
               style={{ padding: "20px" }}
             >
               <FlexItem>
-                <Popper
-                  trigger={searchInput}
-                  triggerRef={searchInputRef}
-                  popper={autocomplete}
-                  popperRef={autocompleteRef}
-                  isVisible={isAutocompleteOpen}
-                  enableFlip={false}
-                  // append the autocomplete menu to the search input in the DOM for the sake of the keyboard navigation experience
-                  appendTo={() =>
-                    document.querySelector("#autocomplete-search")!
-                  }
-                />
+                <FormGroup label="Search recipient">
+                  <Popper
+                    trigger={searchInput}
+                    triggerRef={searchInputRef}
+                    popper={autocomplete}
+                    popperRef={autocompleteRef}
+                    isVisible={isAutocompleteOpen}
+                    enableFlip={false}
+                    // append the autocomplete menu to the search input in the DOM for the sake of the keyboard navigation experience
+                    appendTo={() =>
+                      document.querySelector("#autocomplete-search")!
+                    }
+                  />
+                </FormGroup>
               </FlexItem>
               <FlexItem>
-                <LabelGroup
-                  style={{ width: "250px", height: "27px" }}
-                  categoryName="Names: "
-                  numLabels={5}
-                  isEditable
-                >
-                  {name.map((label, index) => (
-                    <Label
-                      style={{ height: "30px" }}
-                      key={label}
-                      id={label}
-                      color="red"
-                      onClose={() => onLabelClose(label)}
-                    >
-                      {label}
-                    </Label>
-                  ))}
-                </LabelGroup>
-                {!name[0] && (
-                  <TextInput
-                    style={{ width: "350px", height: "40px" }}
-                    value={name[0]}
-                    type="text"
-                    onChange={(_event, value) => setTextValue(value)}
-                    aria-label="text input example"
-                  />
-                )}
+                <FormGroup label="Recipients">
+                  <LabelGroup
+                    style={{ width: "250px", height: "27px" }}
+                    categoryName="Names: "
+                    numLabels={5}
+                    isEditable
+                  >
+                    {name.map((label, index) => (
+                      <Label
+                        style={{ height: "30px" }}
+                        key={label}
+                        id={label}
+                        color="red"
+                        onClose={() => onLabelClose(label)}
+                      >
+                        {label}
+                      </Label>
+                    ))}
+                  </LabelGroup>
+                  {!name[0] && (
+                    <TextInput
+                      style={{ width: "330px", height: "40px" }}
+                      value={name[0]}
+                      type="text"
+                      onChange={(_event, value) => setTextValue(value)}
+                      aria-label="text input example"
+                    />
+                  )}
+                </FormGroup>
               </FlexItem>
               <FlexItem align={{ default: "alignRight" }}>
-                <NumberInput
+                {/* <NumberInput
                   placeholder="Enter points"
                   value={inputValue}
                   onMinus={() => onMinus(inputValue, setInputValue)}
@@ -304,7 +310,15 @@ const CreateNominationPage = () => {
                   minusBtnAriaLabel="input 2 minus"
                   plusBtnAriaLabel="input 2 plus"
                   widthChars={1}
-                />
+                /> */}
+                <FormGroup label="Points">
+                  <TextInput
+                    value={inputValue ?? ""}
+                    type="number"
+                    onChange={(_event, value) => setInputValue(Number(value))}
+                    aria-label="text input example"
+                  />
+                </FormGroup>
               </FlexItem>
             </Flex>
 
@@ -331,9 +345,8 @@ const CreateNominationPage = () => {
                               justifyContent: "center",
                               width: "100px",
                               height: "30px",
-                              backgroundColor: "red !important",
                             }}
-                            color="orangered"
+                            color={data.color}
                             onClick={() => {
                               setSelection(competencyData.indexOf(data));
                               setIsChecked("0");
@@ -354,7 +367,7 @@ const CreateNominationPage = () => {
                           <GalleryItem style={{ padding: "10px" }}>
                             <Label
                               onClick={(e) => setIsChecked(index.toString())}
-                              color="red"
+                              color={competencyData[selection].color}
                               style={{
                                 width: "200px",
                                 height: "65px",
@@ -363,6 +376,29 @@ const CreateNominationPage = () => {
                             >
                               {data.name}
                             </Label>
+                            {/* <Card
+                              isSelectable
+                              isSelected={isChecked === index.toString()}
+                              style={{
+                                textAlign: "center",
+                                justifyContent: "center",
+
+                              }}
+                            >
+                              <CardHeader
+                                selectableActions={{
+                                  selectableActionId: index.toString(),
+                                  selectableActionAriaLabelledby:
+                                    "tile-example-2",
+                                  name: index.toString(),
+                                  variant: "single",
+                                  onChange,
+                                  isHidden: true,
+                                }}
+                              >
+                                {data.name}
+                              </CardHeader>
+                            </Card> */}
                           </GalleryItem>
                         )
                       )}
