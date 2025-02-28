@@ -40,6 +40,7 @@ import { FaStar } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
@@ -187,7 +188,7 @@ export const Header = () => {
           </PageToggleButton>
         </MastheadToggle>
         <MastheadBrand>
-          <MastheadLogo>
+          <MastheadLogo component={(props) => <Link {...props} to="/" />}>
             <Brand src={logo} alt="PatternFly" heights={{ default: "36px" }} />
           </MastheadLogo>
         </MastheadBrand>

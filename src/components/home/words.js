@@ -1,1 +1,1 @@
-export const words = ["ABC", "XYZ", "PQR", "MNO", "UVW"];
+export const words = ["John", "Thomas", "Lily", "Oscar"];

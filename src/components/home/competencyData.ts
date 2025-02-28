@@ -1,6 +1,23 @@
-export const competencyData = [
+export type Competency = {
+  name: String;
+  color:
+    | "red"
+    | "blue"
+    | "green"
+    | "teal"
+    | "purple"
+    | "orange"
+    | "yellow"
+    | "grey"
+    | "orangered"
+    | undefined;
+  subCompetencies: { name: string }[];
+};
+
+export const competencyData: Competency[] = [
   {
     name: "competency-1",
+    color: "red",
     subCompetencies: [
       {
         name: "Connect",
@@ -21,6 +38,7 @@ export const competencyData = [
   },
   {
     name: "competency-2",
+    color: "blue",
     subCompetencies: [
       {
         name: "Practice stratergicility",
@@ -41,6 +59,7 @@ export const competencyData = [
   },
   {
     name: "competency-3",
+    color: "orangered",
     subCompetencies: [
       {
         name: "Listen",
@@ -58,6 +77,7 @@ export const competencyData = [
   },
   {
     name: "competency-4",
+    color: "teal",
     subCompetencies: [
       {
         name: "Take initiative",
@@ -78,6 +98,7 @@ export const competencyData = [
   },
   {
     name: "competency-5",
+    color: "purple",
     subCompetencies: [
       {
         name: "Focus on team",
@@ -98,6 +119,7 @@ export const competencyData = [
   },
   {
     name: "competency-6",
+    color: "orange",
     subCompetencies: [
       {
         name: "Troubleshoot",
@@ -115,6 +137,7 @@ export const competencyData = [
   },
   {
     name: "competency-7",
+    color: "green",
     subCompetencies: [
       {
         name: "Adopt customer perspective",
@@ -135,6 +158,7 @@ export const competencyData = [
   },
   {
     name: "competency-8",
+    color: "yellow",
     subCompetencies: [
       {
         name: "Recognize learning opportunity",
